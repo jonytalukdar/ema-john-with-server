@@ -19,7 +19,7 @@ client.connect((err) => {
   const productsCollection = client.db('emaJohnStore').collection('products');
   app.post('/addProduct', (req, res) => {
     const product = req.body;
-    productsCollection.insertMany(product).then((result) => {
+    productsCollection.insertOne(product).then((result) => {
       res.send(result.insertCount);
       console.log(result.insertCount);
     });

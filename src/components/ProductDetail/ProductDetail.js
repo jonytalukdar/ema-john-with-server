@@ -14,8 +14,6 @@ const ProductDetail = () => {
       });
   }, [productKey]);
 
-  // const product = fakeData.find(pd => pd.key === productKey);
-
   return (
     <div>
       <h1>Your Product Details.</h1>

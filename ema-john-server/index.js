@@ -24,6 +24,24 @@ client.connect((err) => {
       console.log(result.insertCount);
     });
   });
+
+  app.get('/products', (req, res) => {
+    productsCollection
+      .find({})
+      .limit(20)
+      .toArray((err, documents) => {
+        res.send(documents);
+      });
+  });
+
+  app.get('/product/:key', (req, res) => {
+    productsCollection
+      .find({ key: req.params.key })
+      .limit(20)
+      .toArray((err, documents) => {
+        res.send(documents[0]);
+      });
+  });
 });
 
 app.get('/', (req, res) => {
